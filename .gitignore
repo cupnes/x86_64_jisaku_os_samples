@@ -1,0 +1,15 @@
+*~
+*.o
+*.a
+*.efi
+*.bin
+*.map
+*.TXT
+*.img
+*.bgra
+*.png
+fs
+GPATH
+GRTAGS
+GSYMS
+GTAGS
