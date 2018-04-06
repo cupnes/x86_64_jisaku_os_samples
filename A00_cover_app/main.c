@@ -7,6 +7,7 @@
 #include <fs.h>
 #include <common.h>
 #include <iv.h>
+#include <font.h>
 
 void start_kernel(void *_t __attribute__ ((unused)), struct framebuffer *_fb,
 		  void *_fs_start)
@@ -15,6 +16,7 @@ void start_kernel(void *_t __attribute__ ((unused)), struct framebuffer *_fb,
 	fb_init(_fb);
 	set_fg(255, 255, 255);
 	set_bg(0, 70, 250);
+	clear_screen();
 
 	/* CPU周りの初期化 */
 	gdt_init();
@@ -28,7 +30,12 @@ void start_kernel(void *_t __attribute__ ((unused)), struct framebuffer *_fb,
 	fs_init(_fs_start);
 
 	/* 画像ビューアの初期化 */
-	iv_init();
+	/* iv_init(); */
+
+	putc(font_kan_ji);
+	putc(font_kan_saku);
+	putc(font_O);
+	putc(font_S);
 
 	/* CPUの割り込み有効化 */
 	enable_cpu_intr();
