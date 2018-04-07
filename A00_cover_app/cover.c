@@ -26,12 +26,17 @@ void cover_main(void)
 		' ', FONT_kan_cho, '\0'};
 	puts(author);
 
-	/* 2018-04-22 版 へにゃぺんて 発行 */
-	move_cursor(80, 440);
+	/* 2018-04-22 版 */
+	move_cursor(80, 400);
 	char pub[] = {
 		'2', '0', '1', '8', '-', '0', '4', '-', '2', '2', ' ',
-		FONT_kan_han, ' ', FONT_hira_he, FONT_hira_ni, FONT_hira_xya,
-		FONT_hira_pe, FONT_hira_n, FONT_hira_te, ' ', FONT_kan_hatsu,
-		FONT_kan_yuki};
+		FONT_kan_han};
 	puts(pub);
+
+	/* へにゃぺんて 発行 */
+	move_cursor(80, 440);
+	char circle[] = {
+		FONT_hira_he, FONT_hira_ni, FONT_hira_xya, FONT_hira_pe,
+		FONT_hira_n, FONT_hira_te, ' ', FONT_kan_hatsu, FONT_kan_yuki};
+	puts(circle);
 }
