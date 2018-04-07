@@ -65,3 +65,9 @@ void putd(unsigned long long val, unsigned char num_digits)
 
 	puts(str);
 }
+
+void move_cursor(unsigned int x, unsigned int y)
+{
+	cursor_x = x;
+	cursor_y = y;
+}

@@ -32,6 +32,7 @@ void start_kernel(void *_t __attribute__ ((unused)), struct framebuffer *_fb,
 	/* 画像ビューアの初期化 */
 	/* iv_init(); */
 
+	move_cursor(100, 50);
 	putc(FONT_kan_ji);
 	putc(FONT_kan_saku);
 	putc('O');
