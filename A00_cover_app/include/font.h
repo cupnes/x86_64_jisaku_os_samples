@@ -1,8 +1,8 @@
 #ifndef _FONT_H_
 #define _FONT_H_
 
-#define FONT_WIDTH	64
-#define FONT_HEIGHT	64
+#define FONT_WIDTH	32
+#define FONT_HEIGHT	32
 
 enum FONT_IDX {
 	FONT_hira_de,

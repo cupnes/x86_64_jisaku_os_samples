@@ -1,10 +1,14 @@
 #!/bin/bash
 
-SRC_DIR=~/x86_64_poios/materials/cover_font/raw
-DST_DIR=out
+if [ $# -lt 4 ]; then
+	echo "Usage: $0 SOURCE_DIR DEST_DIR WIDTH HIGHT" > /dev/stderr
+	exit 1
+fi
 
-WIDTH=64
-HEIGHT=64
+SRC_DIR=$1
+DST_DIR=$2
+WIDTH=$3
+HEIGHT=$4
 
 img2font()
 {
