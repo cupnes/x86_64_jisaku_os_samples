@@ -26,11 +26,11 @@ void start_kernel(void *_t __attribute__ ((unused)), struct framebuffer *_fb,
 	/* ファイルシステムの初期化 */
 	fs_init(_fs_start);
 
-	/* CPUの割り込み有効化 */
-	enable_cpu_intr();
-
 	/* 表紙アプリ実行 */
 	cover_main();
+
+	/* CPUの割り込み有効化 */
+	enable_cpu_intr();
 
 	/* haltして待つ */
 	while (1)

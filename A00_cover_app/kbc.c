@@ -3,7 +3,7 @@
 #include <fbcon.h>
 #include <intr.h>
 #include <pic.h>
-#include <iv.h>
+#include <cover.h>
 
 #define KBC_DATA_ADDR		0x0060
 #define KBC_DATA_BIT_IS_BRAKE	0x80
@@ -57,10 +57,22 @@ char getc(void)
 
 void do_kbc_interrupt(void)
 {
+	/* ステータスレジスタのOBFがセットされていなければreturn */
+	if (!(io_read(KBC_STATUS_ADDR) & KBC_STATUS_BIT_OBF))
+		goto kbc_exit;
+
+	/* make状態でなければreturn */
+	unsigned char keycode = io_read(KBC_DATA_ADDR);
+	if (keycode & KBC_DATA_BIT_IS_BRAKE)
+		goto kbc_exit;
+
+	/* KBC割り込み処理を呼び出す */
+	char c = keymap[keycode];
+	cover_kbc_handler(c);
+
+kbc_exit:
 	/* PICへ割り込み処理終了を通知(EOI) */
 	set_pic_eoi(KBC_INTR_NO);
-
-    /* 特に割り込み処理は何もせずreturn */
 }
 
 void kbc_init(void)
