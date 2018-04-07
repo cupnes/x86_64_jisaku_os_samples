@@ -5,7 +5,7 @@
 #define FONT_HEIGHT	32
 
 enum FONT_IDX {
-	FONT_hira_de,
+	FONT_hira_de = 1,
 	FONT_hira_he,
 	FONT_hira_n,
 	FONT_hira_ni,
@@ -14,10 +14,10 @@ enum FONT_IDX {
 	FONT_hira_te,
 	FONT_hira_xya,
 	FONT_kan_cho,
-	FONT_kan_dai,
-	FONT_kan_han = 11,
-	FONT_kan_hatsu,
-	FONT_kan_ji = 14,
+	FONT_kan_dai = 11,
+	FONT_kan_han,
+	FONT_kan_hatsu = 14,
+	FONT_kan_ji,
 	FONT_kan_kami,
 	FONT_kan_saku,
 	FONT_kan_shin,

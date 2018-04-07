@@ -32,26 +32,20 @@ void start_kernel(void *_t __attribute__ ((unused)), struct framebuffer *_fb,
 	/* 画像ビューアの初期化 */
 	/* iv_init(); */
 
-	/* move_cursor(100, 50); */
 	/* フルスクラッチで作る! */
-	putc(FONT_kata_fu);
-	putc(FONT_kata_ru);
-	putc(FONT_kata_su);
-	putc(FONT_kata_ku);
-	putc(FONT_kata_ra);
-	putc(FONT_kata_xtu);
-	putc(FONT_kata_chi);
-	putc(FONT_hira_de);
-	putc(FONT_kan_saku);
-	putc(FONT_hira_ru);
-	putc('!');
+	move_cursor(100, 50);
+	char series_title[] = {
+		FONT_kata_fu, FONT_kata_ru, FONT_kata_su, FONT_kata_ku,
+		FONT_kata_ra, FONT_kata_xtu, FONT_kata_chi, FONT_hira_de,
+		FONT_kan_saku, FONT_hira_ru, '!', '\0'};
+	puts(series_title);
 
-	puts("\r\n");
-
-	putc(FONT_kan_ji);
-	putc(FONT_kan_saku);
-	putc('O');
-	putc('S');
+	/* x86_64自作OS */
+	move_cursor(80, 90);
+	char title[] = {
+		'x', '8', '6', '_', '6', '4',
+		FONT_kan_ji, FONT_kan_saku, 'O', 'S', '\0'};
+	puts(title);
 
 	/* CPUの割り込み有効化 */
 	enable_cpu_intr();
