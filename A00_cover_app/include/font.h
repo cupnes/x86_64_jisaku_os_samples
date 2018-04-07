@@ -1,8 +1,8 @@
 #ifndef _FONT_H_
 #define _FONT_H_
 
-#define FONT_WIDTH	32
-#define FONT_HEIGHT	32
+#define FONT_WIDTH	20
+#define FONT_HEIGHT	20
 
 enum FONT_IDX {
 	FONT_hira_de = 1,

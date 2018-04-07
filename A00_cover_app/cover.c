@@ -6,7 +6,7 @@
 
 #define UNIT	10
 #define FC_MAX	255
-#define TOP_MARGIN	50
+#define TOP_MARGIN	150
 #define BOTTOM_MARGIN	25
 
 unsigned char fc_r = FC_MAX, fc_g = FC_MAX, fc_b = FC_MAX;
