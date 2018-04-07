@@ -6,7 +6,7 @@
 
 #define UNIT	10
 #define FC_MAX	255
-#define TOP_MARGIN	150
+#define TOP_MARGIN	100
 #define BOTTOM_MARGIN	25
 
 unsigned char fc_r = FC_MAX, fc_g = FC_MAX, fc_b = FC_MAX;
@@ -42,20 +42,20 @@ void dump_titles(void)
 	str_width_half = (FONT_WIDTH * 7) / 2;
 	start_x = screen_center_x - str_width_half;
 	start_y = screen_center_y - (FONT_HEIGHT / 2);
-	move_cursor(start_x, start_y);
+	move_cursor(start_x, start_y + 15);
 	char author[] = {
 		FONT_kan_dai, FONT_kan_kami, ' ', FONT_kan_yu, FONT_kan_shin,
 		' ', FONT_kan_cho, '\0'};
 	puts(author);
 
-	/* 2018-04-22　版(12文字) */
-	str_width_half = (FONT_WIDTH * 12) / 2;
+	/* 2018-04-22版(11文字) */
+	str_width_half = (FONT_WIDTH * 11) / 2;
 	start_x = screen_center_x - str_width_half;
 	start_y = fb.vr - ((FONT_HEIGHT + 10) * 2) - BOTTOM_MARGIN;
 	move_cursor(start_x, start_y);
 	char pub[] = {
-		'2', '0', '1', '8', '-', '0', '4', '-', '2', '2', ' ',
-		FONT_kan_han, '\0'};
+		'2', '0', '1', '8', '-', '0', '4', '-', '2', '2', FONT_kan_han,
+		'\0'};
 	puts(pub);
 
 	/* へにゃぺんて 発行(9文字) */
