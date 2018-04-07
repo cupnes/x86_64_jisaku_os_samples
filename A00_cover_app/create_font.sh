@@ -29,6 +29,20 @@ img2font()
 	done
 }
 
+create_space_char()
+{
+	echo -e "\t[FONT_space] = {\t/* 0: space */"
+	for y in $(seq ${HEIGHT}); do
+		echo -en '\t\t{'
+		for x in $(seq ${WIDTH}); do
+			echo -n '0'
+			[ $x != ${WIDTH} ] && echo -n ','
+		done
+		echo '},'
+	done
+	echo -e '\t},'
+}
+
 create_font_h()
 {
 	cat >${DST_DIR}/font.h <<EOF
@@ -39,6 +53,7 @@ create_font_h()
 #define FONT_HEIGHT	${HEIGHT}
 
 enum FONT_IDX {
+	FONT_space,
 EOF
 	for s in $(ls ${SRC_DIR}); do
 		echo -e "\tFONT_$(echo $s | rev | cut -d'.' -f2- | rev),"
@@ -58,7 +73,8 @@ create_font_c()
 	echo >>${DST_DIR}/font.c
 	echo 'const unsigned char font_bitmap[][FONT_HEIGHT][FONT_WIDTH] = {' \
 	     >>${DST_DIR}/font.c
-	idx=0
+	idx=1
+	create_space_char >>${DST_DIR}/font.c
 	for s in $(ls ${SRC_DIR}); do
 		name=$(echo $s | rev | cut -d'.' -f2- | rev)
 		echo -e "\t[FONT_$name] = {\t/* $idx: $name */"

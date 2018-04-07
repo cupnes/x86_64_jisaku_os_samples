@@ -30,6 +30,7 @@ enum FONT_IDX {
 	FONT_kata_ru,
 	FONT_kata_su,
 	FONT_kata_xtu,
+	FONT_space = ' ',
 	FONT_exc = '!',
 	FONT_hyphen = '-',
 	FONT_0 = '0',
