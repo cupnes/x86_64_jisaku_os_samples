@@ -1,9 +1,20 @@
 #include <cover.h>
+#include <fb.h>
 #include <font.h>
 #include <fbcon.h>
+#include <iv.h>
 
 void cover_main(void)
 {
+	/* 背景画像表示 */
+	iv_init();
+	view(0);		/* ファイルシステム1番目のファイルを使う */
+
+	/* 以降、独自フォントを使った文字の描画 */
+
+	/* 文字色設定 */
+	set_fg(0, 150, 20);
+
 	/* フルスクラッチで作る! */
 	move_cursor(80, 50);
 	char series_title[] = {

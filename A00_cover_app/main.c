@@ -14,7 +14,6 @@ void start_kernel(void *_t __attribute__ ((unused)), struct framebuffer *_fb,
 	fb_init(_fb);
 	set_fg(255, 255, 255);
 	set_bg(0, 70, 250);
-	clear_screen();
 
 	/* CPU周りの初期化 */
 	gdt_init();
@@ -30,7 +29,7 @@ void start_kernel(void *_t __attribute__ ((unused)), struct framebuffer *_fb,
 	/* CPUの割り込み有効化 */
 	enable_cpu_intr();
 
-	/* 表紙アプリを実行 */
+	/* 表紙アプリ実行 */
 	cover_main();
 
 	/* haltして待つ */
