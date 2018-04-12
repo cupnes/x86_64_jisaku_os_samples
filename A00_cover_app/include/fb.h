@@ -20,11 +20,10 @@ extern struct framebuffer fb;
 void fb_init(struct framebuffer *_fb);
 void set_fg(unsigned char r, unsigned char g, unsigned char b);
 void set_bg(unsigned char r, unsigned char g, unsigned char b);
-inline void draw_px(unsigned int x, unsigned int y,
+void draw_px(unsigned int x, unsigned int y,
 		    unsigned char r, unsigned char g, unsigned char b);
-inline void draw_px_fg(unsigned int x, unsigned int y);
-inline void fill_rect(unsigned int x, unsigned int y,
-		      unsigned int w, unsigned int h,
+void draw_px_fg(unsigned int x, unsigned int y);
+void fill_rect(unsigned int x, unsigned int y, unsigned int w, unsigned int h,
 		      unsigned char r, unsigned char g, unsigned char b);
 void clear_screen(void);
 
