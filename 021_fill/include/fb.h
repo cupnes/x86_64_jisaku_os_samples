@@ -17,11 +17,11 @@ struct framebuffer {
 
 void fb_init(struct framebuffer *_fb);
 void set_bg(unsigned char r, unsigned char g, unsigned char b);
-inline void draw_px(unsigned int x, unsigned int y,
-		    unsigned char r, unsigned char g, unsigned char b);
-inline void fill_rect(unsigned int x, unsigned int y,
-		      unsigned int w, unsigned int h,
-		      unsigned char r, unsigned char g, unsigned char b);
+void draw_px(unsigned int x, unsigned int y,
+	     unsigned char r, unsigned char g, unsigned char b);
+void fill_rect(unsigned int x, unsigned int y,
+	       unsigned int w, unsigned int h,
+	       unsigned char r, unsigned char g, unsigned char b);
 void clear_screen(void);
 
 #endif

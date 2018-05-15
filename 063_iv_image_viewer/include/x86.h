@@ -20,10 +20,10 @@ struct interrupt_descriptor {
 	unsigned int   _reserved;
 };
 
-inline void enable_cpu_intr(void);
-inline void cpu_halt(void);
-inline unsigned char io_read(unsigned short addr);
-inline void io_write(unsigned short addr, unsigned char value);
+void enable_cpu_intr(void);
+void cpu_halt(void);
+unsigned char io_read(unsigned short addr);
+void io_write(unsigned short addr, unsigned char value);
 void gdt_init(void);
 
 #endif
