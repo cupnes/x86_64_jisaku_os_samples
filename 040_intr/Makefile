@@ -12,7 +12,7 @@ $(TARGET): main.o fbcon.o fb.o font.o kbc.o x86.o intr.o pic.o handler.o
 
 run: $(TARGET)
 	cp $(TARGET) ../fs/
-	qemu-system-x86_64 -m 4G -bios OVMF.fd -hda fat:../fs
+	qemu-system-x86_64 -m 4G -bios OVMF.fd -hda fat:rw:../fs -boot c
 
 clean:
 	rm -f *~ *.o *.map $(TARGET) include/*~
